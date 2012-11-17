@@ -1,9 +1,9 @@
 # Enhanced PyYAML
 
-It enhances serval PyYAML classes:
+It enhances several PyYAML classes:
 
-* `Loader`: Addationally load the anchor (`&`) name as an attribute of object. 
-* `YAMLObject`: Defaultly use class name as the yaml tag.
+* `Loader`: Extra load the anchor (`&`) name as an attribute of object. 
+* `YAMLObject`: Use class name as the yaml tag if `yaml_tag` is not set.
 
 # Example
 
