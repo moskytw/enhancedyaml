@@ -9,7 +9,7 @@ It enhances several PyYAML classes:
 
 Here is the yaml file:
 
-    # tests/enhanced_data.yaml
+    # examples/enhanced_data.yaml
 
     %YAML 1.1
     ---
@@ -24,7 +24,7 @@ Here is the yaml file:
 
 Load it with enhanced PyYAML:
 
-    # tests/test_enhanced.py
+    # examples/test_enhanced.py
     #!/usr/bin/env python
     # -*- coding: utf-8 -*-
 
