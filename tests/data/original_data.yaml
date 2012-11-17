@@ -1,0 +1,12 @@
+%YAML 1.1
+---
+examples:
+    - !Example &first
+        anchor: first
+        data: I am the first one.
+    - !Example &second
+        anchor: second
+        data: I am the second one.
+order:
+    - *first
+    - *second
