@@ -8,7 +8,9 @@ class Example(yaml.YAMLObject):
 
 if __name__ == '__main__':
     from pprint import pprint
+
     data = yaml.load(open('data/original_data.yaml'))
+
     print 'Loaded YAML:'
     pprint(data)
     print

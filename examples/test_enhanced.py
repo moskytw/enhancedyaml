@@ -7,7 +7,9 @@ class Example(enhancedyaml.YAMLObject): pass
 
 if __name__ == '__main__':
     from pprint import pprint
+
     data = enhancedyaml.load(open('data/enhanced_data.yaml'))
+
     print 'Loaded YAML:'
     pprint(data)
     print
