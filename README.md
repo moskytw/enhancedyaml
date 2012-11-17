@@ -45,4 +45,20 @@ Load it with enhanced PyYAML:
             print '    anchor:', example.anchor
             print '    data  :', example.data
 
+And the output:
+
+    Loaded YAML:
+    {'examples': [<__main__.Example object at 0x25d9d50>,
+                  <__main__.Example object at 0x25d9d10>],
+     'order': [<__main__.Example object at 0x25d9d50>,
+               <__main__.Example object at 0x25d9d10>]}
+
+    Data of Examples:
+    Example 0:
+        anchor: first
+        data  : I am the first one.
+    Example 1:
+        anchor: second
+        data  : I am the second one.
+
 Have fun!
