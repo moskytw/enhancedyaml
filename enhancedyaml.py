@@ -30,9 +30,14 @@ _YAMLObjectMetaclass = YAMLObjectMetaclass
 class YAMLObjectMetaclass(_YAMLObjectMetaclass):
 
     def __init__(cls, name, bases, attrs):
-        if 'yaml_tag' not in attrs:
-            attrs['yaml_tag'] = '!'+name
-        super(YAMLObjectMetaclass, cls).__init__(cls, bases, attrs)
+        if hasattr(cls, 'yaml_tag'):
+            yaml_tag = '!'+name
+            # PyYAML uses it to emit
+            cls.yaml_tag = yaml_tag
+            # PyYAML uses it to add constructor and representer (@ orignal YAMLObjectMetaclass)
+            attrs['yaml_tag'] = yaml_tag
+
+        super(YAMLObjectMetaclass, cls).__init__(name, bases, attrs)
 
 _YAMLObject = YAMLObject
 class YAMLObject(_YAMLObject):
