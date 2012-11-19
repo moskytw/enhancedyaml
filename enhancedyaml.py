@@ -26,6 +26,20 @@ class Loader(_Loader):
             data.anchor = node.anchor
         return data
 
+_Dumper = Dumper
+class Dumper(_Dumper):
+
+    def generate_anchor(self, node):
+        if hasattr(node, 'anchor'):
+            # TODO: rename `anchor` to `_id`?
+            return node.anchor
+        else:
+            return super(Dumper, self).generate_anchor(node)
+
+    def represent_yaml_object(self, tag, data, cls, flow_style=None):
+        # TODO: unpack the `anchor` from data
+        return super(Dumper, self).represent_yaml_object(tag, data, cls, flow_style)
+
 _YAMLObjectMetaclass = YAMLObjectMetaclass
 class YAMLObjectMetaclass(_YAMLObjectMetaclass):
 
@@ -46,3 +60,7 @@ class YAMLObject(_YAMLObject):
 _load = load
 def load(stream, Loader=Loader):
     return _load(stream, Loader)
+
+_dump = dump
+def dump(data, stream=None, Dumper=Dumper, **kwds):
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
