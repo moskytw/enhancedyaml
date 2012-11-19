@@ -26,13 +26,31 @@ class Loader(_Loader):
             data.anchor = node.anchor
         return data
 
+_Dumper = Dumper
+class Dumper(_Dumper):
+
+    def generate_anchor(self, node):
+        if hasattr(node, 'anchor'):
+            return node.anchor
+        else:
+            return super(Dumper, self).generate_anchor(node)
+
+    def represent_yaml_object(self, tag, data, cls, flow_style=None):
+        node = super(Dumper, self).represent_yaml_object(tag, data, cls, flow_style)
+        return node
+
 _YAMLObjectMetaclass = YAMLObjectMetaclass
 class YAMLObjectMetaclass(_YAMLObjectMetaclass):
 
     def __init__(cls, name, bases, attrs):
-        if 'yaml_tag' not in attrs:
-            attrs['yaml_tag'] = '!'+name
-        super(YAMLObjectMetaclass, cls).__init__(cls, bases, attrs)
+        if hasattr(cls, 'yaml_tag'):
+            yaml_tag = '!'+name
+            # PyYAML uses it to emit
+            cls.yaml_tag = yaml_tag
+            # PyYAML uses it to add constructor and representer (@ orignal YAMLObjectMetaclass)
+            attrs['yaml_tag'] = yaml_tag
+
+        super(YAMLObjectMetaclass, cls).__init__(name, bases, attrs)
 
 _YAMLObject = YAMLObject
 class YAMLObject(_YAMLObject):
@@ -41,3 +59,7 @@ class YAMLObject(_YAMLObject):
 _load = load
 def load(stream, Loader=Loader):
     return _load(stream, Loader)
+
+_dump = dump
+def dump(data, stream=None, Dumper=Dumper, **kwds):
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
