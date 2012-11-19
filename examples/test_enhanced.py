@@ -20,3 +20,6 @@ if __name__ == '__main__':
         print '    anchor:', example.anchor
         print '    data  :', example.data
 
+    print 'Dump data:'
+    # TODO: find why string have `!!python/unicode` tag
+    print enhancedyaml.dump(data)

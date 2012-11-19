@@ -21,3 +21,6 @@ if __name__ == '__main__':
         print '    anchor:', example.anchor
         print '    data  :', example.data
 
+    print 'Dump data:'
+    print yaml.dump(data)
+
