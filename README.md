@@ -2,8 +2,9 @@
 
 It enhances several PyYAML classes:
 
-* `Loader`: Extra load the anchor (`&`) name as an attribute of object. 
 * `YAMLObject`: Use class name as the yaml tag if `yaml_tag` is not set.
+* `Loader`: Extra load the anchor (`&`) name as an attribute of object. 
+* `Dumper`: Unpack the anchor attribute from object and use it as the anchor in dumped YAML.
 
 # Example
 
@@ -22,45 +23,33 @@ Here is the yaml file:
         - *first
         - *second
 
-Load it with enhanced PyYAML:
+Use Enhanced PyYAML to load (output of `examples/test\_enhanced.py`):
+   
+    ## Loaded YAML:
 
-    # examples/test_enhanced.py
-    #!/usr/bin/env python
-    # -*- coding: utf-8 -*-
+    {'examples': [<__main__.Example object at 0x7f96b946de50>,
+                  <__main__.Example object at 0x7f96b946dc10>],
+     'order': [<__main__.Example object at 0x7f96b946de50>,
+               <__main__.Example object at 0x7f96b946dc10>]}
 
-    import enhancedyaml
+    ## Attributs of Examples:
 
-    class Example(enhancedyaml.YAMLObject): pass
+    * Example 0
+        * anchor: first
+        * data  : I am the first one.
+    * Example 1
+        * anchor: second
+        * data  : I am the second one.
 
-    if __name__ == '__main__':
-        from pprint import pprint
+    ## Dump data again:
 
-        data = enhancedyaml.load(open('data/enhanced_data.yaml'))
-
-        print 'Loaded YAML:'
-        pprint(data)
-        print
-
-        print 'Data of Examples:'
-        for i, example in enumerate(data['order']):
-            print 'Example %d:' % i
-            print '    anchor:', example.anchor
-            print '    data  :', example.data
-
-And the output:
-
-    Loaded YAML:
-    {'examples': [<__main__.Example object at 0x25d9d50>,
-                  <__main__.Example object at 0x25d9d10>],
-     'order': [<__main__.Example object at 0x25d9d50>,
-               <__main__.Example object at 0x25d9d10>]}
-
-    Data of Examples:
-    Example 0:
-        anchor: first
-        data  : I am the first one.
-    Example 1:
-        anchor: second
-        data  : I am the second one.
+    examples:
+    - &first !Example
+      data: I am the first one.
+    - &second !Example
+      data: I am the second one.
+    order:
+    - \*first
+    - \*second
 
 Have fun!
