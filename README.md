@@ -6,7 +6,7 @@ It enhances several PyYAML classes:
 * `Loader`: Extra load the anchor (`&`) name as an attribute of object. 
 * `Dumper`: Unpack the anchor attribute from object and use it as the anchor in dumped YAML.
 
-# Example
+## Example
 
 Here is the yaml file:
 
