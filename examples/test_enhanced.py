@@ -19,6 +19,7 @@ if __name__ == '__main__':
         print 'Example %d:' % i
         print '    anchor:', example.anchor
         print '    data  :', example.data
+    print
 
     print 'Dump data:'
     # TODO: find why string have `!!python/unicode` tag

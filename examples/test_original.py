@@ -20,6 +20,7 @@ if __name__ == '__main__':
         print 'Example %d:' % i
         print '    anchor:', example.anchor
         print '    data  :', example.data
+    print
 
     print 'Dump data:'
     print yaml.dump(data)
