@@ -12,7 +12,7 @@ if __name__ == '__main__':
     data = yaml.load(open('data/original_data.yaml'))
 
 
-    print '### Loaded YAML:'
+    print '### Loaded YAML'
     print
     pprint(data)
     print
@@ -22,6 +22,6 @@ if __name__ == '__main__':
     pprint(list(example.__dict__ for example in data['order']))
     print
 
-    print '### Dump data again:'
+    print '### Dump Data Again'
     print
     print yaml.dump(data, default_flow_style=False)
