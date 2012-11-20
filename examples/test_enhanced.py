@@ -10,16 +10,19 @@ if __name__ == '__main__':
 
     data = enhancedyaml.load(open('data/enhanced_data.yaml'))
 
-    print 'Loaded YAML:'
+    print '## Loaded YAML:'
+    print
     pprint(data)
     print
 
-    print 'Data of Examples:'
+    print '## Attributs of Examples:'
+    print
     for i, example in enumerate(data['order']):
-        print 'Example %d:' % i
-        print '    anchor:', example.anchor
-        print '    data  :', example.data
+        print '* Example %d' % i
+        print '    * anchor:', example.anchor
+        print '    * data  :', example.data
     print
 
-    print 'Dump data:'
+    print '## Dump data again:'
+    print
     print enhancedyaml.dump(data, default_flow_style=False)

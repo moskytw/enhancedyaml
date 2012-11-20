@@ -11,17 +11,19 @@ if __name__ == '__main__':
 
     data = yaml.load(open('data/original_data.yaml'))
 
-    print 'Loaded YAML:'
+    print '## Loaded YAML:'
+    print
     pprint(data)
     print
 
-    print 'Data of Examples:'
+    print '## Attributs of Examples:'
+    print
     for i, example in enumerate(data['order']):
-        print 'Example %d:' % i
-        print '    anchor:', example.anchor
-        print '    data  :', example.data
+        print '* Example %d' % i
+        print '    * anchor:', example.anchor
+        print '    * data  :', example.data
     print
 
-    print 'Dump data:'
+    print '## Dump data again:'
+    print
     print yaml.dump(data, default_flow_style=False)
-
