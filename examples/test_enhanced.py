@@ -23,4 +23,4 @@ if __name__ == '__main__':
 
     print 'Dump data:'
     # TODO: find why string have `!!python/unicode` tag
-    print enhancedyaml.dump(data)
+    print enhancedyaml.dump(data, default_flow_style=False)

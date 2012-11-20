@@ -23,5 +23,5 @@ if __name__ == '__main__':
     print
 
     print 'Dump data:'
-    print yaml.dump(data)
+    print yaml.dump(data, default_flow_style=False)
 
