@@ -1,10 +1,10 @@
 # Enhanced PyYAML
 
-It enhances several PyYAML classes:
+## Features
 
-* `YAMLObject`: Use class name as the yaml tag if `yaml_tag` is not set.
-* `Loader`: Extra load the anchor (`&`) name as an attribute of object. 
-* `Dumper`: Unpack the anchor attribute from object and use it as the anchor in dumped YAML.
+* use name of class as the `yaml_tag` of YAMLObject
+* load anchor `&` as an attribute `anchor` of YAMLObject instance
+* dump the attribute `anchor` of YAMLObject instance as the anchor `&` name
 
 ## Example
 
@@ -23,25 +23,49 @@ Here is the yaml file:
         - *first
         - *second
 
-Use Enhanced PyYAML to load (output of `examples/test_enhanced.py`):
-   
-    ## Loaded YAML:
+### Create an YAMLObject without specifiying `yaml_tag`
 
-    {'examples': [<__main__.Example object at 0x7f96b946de50>,
-                  <__main__.Example object at 0x7f96b946dc10>],
-     'order': [<__main__.Example object at 0x7f96b946de50>,
-               <__main__.Example object at 0x7f96b946dc10>]}
+   import enhancedyaml
 
-    ## Attributs of Examples:
+   class Example(enhancedyaml.YAMLObject): pass
 
-    * Example 0
-        * anchor: first
-        * data  : I am the first one.
-    * Example 1
-        * anchor: second
-        * data  : I am the second one.
+### Loaded YAML
 
-    ## Dump data again:
+Code:
+
+    from pprint import pprint
+
+    data = enhancedyaml.load(open('data/enhanced_data.yaml'))
+    pprint(data)
+
+Output:
+
+    {'examples': [<__main__.Example object at 0x7fa825fb4fd0>,
+
+                  <__main__.Example object at 0x7fa825fb4cd0>],
+     'order': [<__main__.Example object at 0x7fa825fb4fd0>,
+               <__main__.Example object at 0x7fa825fb4cd0>]}
+
+### Content of `data['order']`
+
+Code:
+
+    pprint(list(example.__dict__ for example in data['order']))
+
+Output:
+
+    [{'anchor': u'first', 'data': 'I am the first one.'},
+     {'anchor': u'second', 'data': 'I am the second one.'}]
+
+`Example` has addational attribute `anchor`.
+
+### Dump Data Again
+
+Code:
+
+    print enhancedyaml.dump(data, default_flow_style=False)
+
+Output:
 
     examples:
     - &first !Example
@@ -51,5 +75,9 @@ Use Enhanced PyYAML to load (output of `examples/test_enhanced.py`):
     order:
     - *first
     - *second
+
+It is almost same as the original YAML.
+
+You can find more examples in `enhancedyaml/examples` directory.
 
 Have fun!
