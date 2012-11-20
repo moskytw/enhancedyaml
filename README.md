@@ -23,7 +23,7 @@ Here is the yaml file:
         - *first
         - *second
 
-Use Enhanced PyYAML to load (output of `examples/test\_enhanced.py`):
+Use Enhanced PyYAML to load (output of `examples/test_enhanced.py`):
    
     ## Loaded YAML:
 
@@ -49,7 +49,7 @@ Use Enhanced PyYAML to load (output of `examples/test\_enhanced.py`):
     - &second !Example
       data: I am the second one.
     order:
-    - \*first
-    - \*second
+    - *first
+    - *second
 
 Have fun!
