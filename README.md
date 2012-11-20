@@ -27,9 +27,9 @@ Here is the yaml file:
 
 ### Create an YAMLObject without specifiying `yaml_tag`
 
-   import enhancedyaml
+    import enhancedyaml
 
-   class Example(enhancedyaml.YAMLObject): pass
+    class Example(enhancedyaml.YAMLObject): pass
 
 ### Loaded YAML
 
