@@ -12,7 +12,8 @@ class Loader(_Loader):
 
             def compose_x_node_with_anchor(anchor):
                 node = getattr(super(Loader, self), name)(anchor)
-                node.anchor = anchor
+                if anchor is not None:
+                    node.anchor = anchor
                 return node
 
             return compose_x_node_with_anchor
