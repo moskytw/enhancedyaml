@@ -35,11 +35,16 @@ class Dumper(_Dumper):
             return super(Dumper, self).generate_anchor(node)
 
     def represent_yaml_object(self, tag, data, cls, flow_style=None):
+        anchor = None
         if hasattr(data, 'anchor'):
             anchor = data.anchor
             del data.anchor
+
         node = super(Dumper, self).represent_yaml_object(tag, data, cls, flow_style)
-        node.anchor = anchor
+
+        if anchor is not None:
+            node.anchor = anchor
+
         return node
 
 _YAMLObjectMetaclass = YAMLObjectMetaclass
