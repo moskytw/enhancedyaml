@@ -43,7 +43,7 @@ class Dumper(_Dumper):
             return node.anchor
         elif hasattr(node, 'tag'):
             last_anchor_id = self.last_anchor_id_by_tag[node.tag] = self.last_anchor_id_by_tag.setdefault(node.tag, 0) + 1
-            return self.ANCHOR_TEMPLATE % (node.tag[1:], last_anchor_id)
+            return self.ANCHOR_TEMPLATE % (node.tag[1:].lower(), last_anchor_id)
         else:
             self.last_anchor_id = self.last_anchor_id + 1
             return self.ANCHOR_TEMPLATE % ('id', last_anchor_id)
