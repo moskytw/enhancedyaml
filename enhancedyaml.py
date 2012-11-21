@@ -6,20 +6,17 @@ from yaml import *
 _Loader = Loader
 class Loader(_Loader):
 
-    def __getattribute__(self, name):
+    def compose_node(self, parent, index):
+        anchor = None
+        if self.check_event(AliasEvent):
+            anchor = self.peek_event().anchor
 
-        if name[:8] == 'compose_' and name[-5:] == '_node' and name != 'compose_node':
+        node = super(Loader, self).compose_node(parent, index)
 
-            def compose_x_node_with_anchor(anchor):
-                node = getattr(super(Loader, self), name)(anchor)
-                if anchor is not None:
-                    node.anchor = anchor
-                return node
+        if anchor is not None:
+            node.anchor = anchor
 
-            return compose_x_node_with_anchor
-
-        else:
-            return object.__getattribute__(self, name)
+        return node
 
     def construct_object(self, node, deep=False):
         data = super(Loader, self).construct_object(node, deep)
