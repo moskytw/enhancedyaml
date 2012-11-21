@@ -27,12 +27,26 @@ class Loader(_Loader):
 _Dumper = Dumper
 class Dumper(_Dumper):
 
+    ANCHOR_TEMPLATE = u'%s%03d'
+
+    def __init__(self, *args, **kargs):
+        super(Dumper, self).__init__(*args, **kargs)
+        self.last_anchor_id_by_tag = {}
+
+    def serialize(self, node):
+        super(Dumper, self).serialize(node)
+        self.last_anchor_id_by_tag = {}
+
     def generate_anchor(self, node):
         if hasattr(node, 'anchor'):
             # TODO: rename `anchor` to `_id`?
             return node.anchor
+        elif hasattr(node, 'tag'):
+            last_anchor_id = self.last_anchor_id_by_tag[node.tag] = self.last_anchor_id_by_tag.setdefault(node.tag, 0) + 1
+            return self.ANCHOR_TEMPLATE % (node.tag[1:], last_anchor_id)
         else:
-            return super(Dumper, self).generate_anchor(node)
+            self.last_anchor_id = self.last_anchor_id + 1
+            return self.ANCHOR_TEMPLATE % ('id', last_anchor_id)
 
     def represent_yaml_object(self, tag, data, cls, flow_style=None):
         anchor = None
