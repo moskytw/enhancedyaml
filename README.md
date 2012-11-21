@@ -80,6 +80,26 @@ Output:
 
 It is almost same as the original YAML.
 
+### Dump Objects Which Are Generated in Runtime
+
+Code:
+
+    e1 = Example()
+    e2 = Example()
+    e1.data = "I don't have `anchor`."
+    e2.data = "I don't have `anchor`, too."
+    es = [e1, e2, e2, e1]
+    print enhancedyaml.dump(es, default_flow_style=False)
+
+Output:
+
+    - &Example002 !Example
+      data: I don't have `anchor`.
+    - &Example001 !Example
+      data: I don't have `anchor`, too.
+    - *Example001
+    - *Example002
+
 You can find more examples in `enhancedyaml/examples` directory.
 
 Have fun!
