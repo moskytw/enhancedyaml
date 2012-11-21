@@ -93,12 +93,12 @@ Code:
 
 Output:
 
-    - &Example002 !Example
+    - &example002 !Example
       data: I don't have `anchor`.
-    - &Example001 !Example
+    - &example001 !Example
       data: I don't have `anchor`, too.
-    - *Example001
-    - *Example002
+    - *example001
+    - *example002
 
 You can find more examples in `enhancedyaml/examples` directory.
 
