@@ -7,6 +7,7 @@ _Loader = Loader
 class Loader(_Loader):
 
     def compose_node(self, parent, index):
+
         anchor = None
         if self.check_event(AliasEvent):
             anchor = self.peek_event().anchor
