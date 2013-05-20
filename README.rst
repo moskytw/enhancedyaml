@@ -1,5 +1,5 @@
 Enhanced PyYAML
----------------
+===============
 
 It makes PyYAML more convenient and avoids duplicate YAML data.
 
