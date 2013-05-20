@@ -37,8 +37,8 @@ Here is the yaml file:
         - !Example &second
             data: I am the second one.
     order:
-        - \*first
-        - \*second
+        - *first
+        - *second
 
 Create an YAMLObject without specifiying `yaml_tag`
 ===================================================
@@ -108,8 +108,8 @@ Output:
     - &second !Example
       data: I am the second one.
     order:
-    - \*first
-    - \*second
+    - *first
+    - *second
 
 It is almost same as the original YAML.
 
@@ -135,8 +135,8 @@ Output:
       data: I don't have `anchor`.
     - &example001 !Example
       data: I don't have `anchor`, too.
-    - \*example001
-    - \*example002
+    - *example001
+    - *example002
 
 You can find more examples in `enhancedyaml/examples` directory.
 
