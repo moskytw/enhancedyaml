@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+__version__ = 'v0.1.1'
+
 from yaml import *
 
 _Loader = Loader
