@@ -10,6 +10,7 @@ setup(
     author  = 'Mosky',
     author_email = 'mosky.tw@gmail.com',
     #url = 'http://enhancedyaml.mosky.tw/',
+    url = 'https://github.com/moskytw/enhancedyaml',
     py_modules = ['enhancedyaml'],
     license = 'MIT',
     classifiers = [
