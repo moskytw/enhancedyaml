@@ -115,7 +115,7 @@ Output:
 
 It is almost same as the original YAML.
 
-Dump Objects Which are Generated in Runtime
+Dump Objects Which Are Generated in Runtime
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Code:
