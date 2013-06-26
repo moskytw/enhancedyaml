@@ -3,7 +3,7 @@ Enhanced PyYAML
 
 It makes PyYAML more convenient and avoids duplicate YAML data.
 
-Here is the features:
+Here are the features:
 
 - By deafult, it uses name of class as the `yaml_tag` of YAMLObject.
 - It loads anchor `&` as an attribute `anchor` of YAMLObject instance.
