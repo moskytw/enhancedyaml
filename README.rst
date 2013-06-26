@@ -140,7 +140,7 @@ Output:
     - *example001
     - *example002
 
-`Here <https://github.com/moskytw/enhancedyaml/tree/dev/examples>`_ are more
-examples.
+Here are `more examples
+<https://github.com/moskytw/enhancedyaml/tree/dev/examples>`_.
 
 Have fun!
