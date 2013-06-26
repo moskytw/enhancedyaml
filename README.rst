@@ -39,6 +39,9 @@ Here is `a yaml file
         - *first
         - *second
 
+The following code is taken from `test_enhanced.py
+<https://github.com/moskytw/enhancedyaml/blob/dev/examples/test_enhanced.py>`_.
+
 Create an YAMLObject Without Specifiying `yaml_tag`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -137,7 +140,7 @@ Output:
     - *example001
     - *example002
 
-You can find more examples `here
-<https://github.com/moskytw/enhancedyaml/tree/dev/examples>`_.
+`Here <https://github.com/moskytw/enhancedyaml/tree/dev/examples>`_ are more
+examples.
 
 Have fun!
