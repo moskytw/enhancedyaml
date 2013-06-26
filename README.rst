@@ -40,8 +40,8 @@ Here is the yaml file:
         - *first
         - *second
 
-Create an YAMLObject without specifiying `yaml_tag`
-===================================================
+Create an YAMLObject Without Specifiying `yaml_tag`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -50,7 +50,7 @@ Create an YAMLObject without specifiying `yaml_tag`
     class Example(enhancedyaml.YAMLObject): pass
 
 Loaded YAML
-===========
+~~~~~~~~~~~
 
 Code:
 
@@ -72,7 +72,7 @@ Output:
                <__main__.Example object at 0x7fa825fb4cd0>]}
 
 Content of `data['order']`
-==========================
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Code:
 
@@ -90,7 +90,7 @@ Output:
 `Example` has addational attribute `anchor`.
 
 Dump Data Again
-===============
+~~~~~~~~~~~~~~~
 
 Code:
 
@@ -114,7 +114,7 @@ Output:
 It is almost same as the original YAML.
 
 Dump Objects Which are Generated in Runtime
-===========================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Code:
 
