@@ -5,9 +5,9 @@ It makes PyYAML more convenient and avoids duplicate YAML data.
 
 Here is the features:
 
-- by deafult, use name of class as the `yaml_tag` of YAMLObject
-- load anchor `&` as an attribute `anchor` of YAMLObject instance
-- dump the attribute `anchor` of YAMLObject instance as the anchor `&` name
+- By deafult, it uses name of class as the `yaml_tag` of YAMLObject.
+- It loads anchor `&` as an attribute `anchor` of YAMLObject instance.
+- It dumps the attribute `anchor` of YAMLObject instance as the anchor `&` name.
 
 Installation
 ------------
@@ -23,11 +23,10 @@ or download it manually.
 Examples
 --------
 
-Here is the yaml file:
+Here is `a yaml file
+<https://github.com/moskytw/enhancedyaml/blob/dev/examples/data/enhanced_data.yaml>`_:
 
 ::
-
-    # examples/enhanced_data.yaml
 
     %YAML 1.1
     ---
@@ -138,6 +137,7 @@ Output:
     - *example001
     - *example002
 
-You can find more examples in `enhancedyaml/examples` directory.
+You can find more examples `here
+<https://github.com/moskytw/enhancedyaml/tree/dev/examples>`_.
 
 Have fun!
