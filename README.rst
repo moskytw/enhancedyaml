@@ -9,17 +9,6 @@ Here are the features:
 - It loads anchor `&` as an attribute `anchor` of YAMLObject instance.
 - It dumps the attribute `anchor` of YAMLObject instance as the anchor `&` name.
 
-Installation
-------------
-
-You can install it via PyPI,
-
-::
-
-    sudo pip install enhancedyaml
-
-or download it manually.
-
 Examples
 --------
 
